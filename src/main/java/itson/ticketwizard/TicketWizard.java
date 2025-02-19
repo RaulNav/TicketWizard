@@ -4,6 +4,8 @@
 
 package itson.ticketwizard;
 
+import itson.presentacion.Login;
+
 /**
  *
  * @author rauln
@@ -11,6 +13,9 @@ package itson.ticketwizard;
 public class TicketWizard {
 
     public static void main(String[] args) {
-        System.out.println("Hello!");
+        Login LoginFrame = new Login();
+        LoginFrame.setVisible(true);
+        LoginFrame.pack();
+        LoginFrame.setLocationRelativeTo(null); 
     }
 }
