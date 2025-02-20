@@ -4,6 +4,7 @@ package itson.presentacion;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class Login extends javax.swing.JFrame {
 
@@ -23,11 +24,11 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         campoCorreoElectronico = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        campoContrasenia = new javax.swing.JPasswordField();
         botonIngresar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         botonRegistrarme = new javax.swing.JButton();
         mensajeCorreo = new javax.swing.JLabel();
+        campoPassword = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -93,20 +94,19 @@ public class Login extends javax.swing.JFrame {
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2)
-                        .addComponent(campoCorreoElectronico)
-                        .addComponent(jLabel3)
-                        .addComponent(campoContrasenia, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
-                        .addComponent(botonIngresar))
+                .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(botonIngresar)
                     .addGroup(LeftLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(botonRegistrarme)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addComponent(botonRegistrarme))
+                    .addComponent(campoCorreoElectronico)
+                    .addComponent(campoPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftLayout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftLayout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -128,9 +128,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(mensajeCorreo)
                 .addGap(1, 1, 1)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(botonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -140,10 +140,12 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanel1.add(Left);
-        Left.setBounds(400, 0, 400, 516);
+        Left.setBounds(400, 0, 400, 515);
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
         jPanel2.setForeground(new java.awt.Color(0, 102, 102));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\rauln\\Documents\\NetBeansProjects\\TicketWizard\\src\\main\\java\\itson\\media\\icon.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -194,6 +196,9 @@ public class Login extends javax.swing.JFrame {
 
     private void botonIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIngresarMouseClicked
         // TODO add your handling code here:
+        String correo = campoCorreoElectronico.getText();
+        String password = BCrypt.hashpw(campoPassword.getText(), BCrypt.gensalt(12));
+        
         Menu menuFrame = new Menu();
         menuFrame.setVisible(true);
         menuFrame.pack();
@@ -226,8 +231,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel Left;
     private javax.swing.JButton botonIngresar;
     private javax.swing.JButton botonRegistrarme;
-    private javax.swing.JPasswordField campoContrasenia;
     private javax.swing.JTextField campoCorreoElectronico;
+    private javax.swing.JPasswordField campoPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -58,9 +58,9 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel6)
-                .addContainerGap(427, Short.MAX_VALUE))
+                .addContainerGap(443, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -2,6 +2,7 @@
 package itson.presentacion;
 
 import itson.entidades.Usuario;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import org.mindrot.jbcrypt.BCrypt;
@@ -63,9 +64,8 @@ public class SignUp extends javax.swing.JFrame {
         campoCalle = new javax.swing.JTextField();
         campoColonia = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        campoNumero = new javax.swing.JTextField();
+        campoApellidoMaterno1 = new javax.swing.JTextField();
         campoFechaNacimiento = new com.toedter.calendar.JDateChooser();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -225,11 +225,11 @@ public class SignUp extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel26.setText("Fecha de nacimiento");
 
-        campoNumero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        campoNumero.setForeground(new java.awt.Color(102, 102, 102));
-        campoNumero.addActionListener(new java.awt.event.ActionListener() {
+        campoApellidoMaterno1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        campoApellidoMaterno1.setForeground(new java.awt.Color(102, 102, 102));
+        campoApellidoMaterno1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNumeroActionPerformed(evt);
+                campoApellidoMaterno1ActionPerformed(evt);
             }
         });
 
@@ -274,7 +274,7 @@ public class SignUp extends javax.swing.JFrame {
                                         .addGap(2, 2, 2))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(campoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campoApellidoMaterno1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
@@ -331,7 +331,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoApellidoMaterno1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
@@ -361,30 +361,20 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                    .addContainerGap(14, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(13, Short.MAX_VALUE)))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(286, Short.MAX_VALUE)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134)
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(84, Short.MAX_VALUE)))
         );
 
         jPanel1.add(jPanel3);
@@ -428,6 +418,14 @@ public class SignUp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void campoApellidoMaterno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoApellidoMaterno1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoApellidoMaterno1ActionPerformed
+
+    private void campoColoniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoColoniaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoColoniaActionPerformed
+
     private void campoCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCalleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoCalleActionPerformed
@@ -439,6 +437,10 @@ public class SignUp extends javax.swing.JFrame {
     private void campoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNombreActionPerformed
+
+    private void campoContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoContraseniaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoContraseniaActionPerformed
 
     private void estadosBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadosBoxActionPerformed
         // TODO add your handling code here:
@@ -465,9 +467,21 @@ public class SignUp extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
-    private void campoContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoContraseniaActionPerformed
+    private void botonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoContraseniaActionPerformed
+        String correo = campoCorreo.getText();
+        String nombre = campoNombre.getText();
+        String apellidoP = campoApellidoPaterno.getText();
+        String apellidoM = campoApellidoMaterno.getText();
+        String calle = campoCalle.getText();
+        String ciudad = campoCiudad.getText();
+        String colonia = campoColonia.getText();
+        Date fechaNacimientoDate = campoFechaNacimiento.getDate();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaNacimiento = formato.format(fechaNacimientoDate);
+        String contraseniaHasheada = BCrypt.hashpw(campoContrasenia.getText(), BCrypt.gensalt(12));
+
+    }//GEN-LAST:event_botonRegistrarseActionPerformed
 
     private void botonRegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonRegistrarseMouseClicked
         // TODO add your handling code here:
@@ -478,36 +492,11 @@ public class SignUp extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonRegistrarseMouseClicked
 
-    private void botonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarseActionPerformed
-        // TODO add your handling code here:
-        String correo = campoCorreo.getText();
-        String nombre = campoNombre.getText();
-        String apellidoP = campoApellidoPaterno.getText();
-        String apellidoM = campoApellidoMaterno.getText();
-        String calle = campoCalle.getText();
-        String ciudad = campoCiudad.getText();
-        String colonia = campoColonia.getText();
-        Date fechaNacimiento = campoFechaNacimiento.getDate();
-        String contraseniaPlana = campoContrasenia.getText();
-        String contraseniaHasheada = BCrypt.hashpw(contraseniaPlana, BCrypt.gensalt(12));
-        
-       
-        
-        
-    }//GEN-LAST:event_botonRegistrarseActionPerformed
-
-    private void campoColoniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoColoniaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoColoniaActionPerformed
-
-    private void campoNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNumeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoNumeroActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonIniciarSesion;
     private javax.swing.JButton botonRegistrarse;
     private javax.swing.JTextField campoApellidoMaterno;
+    private javax.swing.JTextField campoApellidoMaterno1;
     private javax.swing.JTextField campoApellidoPaterno;
     private javax.swing.JTextField campoCalle;
     private javax.swing.JTextField campoCiudad;
@@ -516,10 +505,8 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JTextField campoCorreo;
     private com.toedter.calendar.JDateChooser campoFechaNacimiento;
     private javax.swing.JTextField campoNombre;
-    private javax.swing.JTextField campoNumero;
     private javax.swing.JComboBox<String> estadosBox;
     private com.toedter.calendar.JCalendar jCalendar1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
